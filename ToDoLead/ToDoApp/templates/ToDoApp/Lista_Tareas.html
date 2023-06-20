@@ -1,20 +1,17 @@
 <h1>Hello To Do List</h1>
 
-<form action="/addTodoItem" method="POST">
-    {% csrf_token %}
-    <input type="text" name="content">
-    <input type="submit" value="Add Todo Item">
-</form>
-
-<ul>
-    {% for i in all_items %}
-    <li>
-        {{i.content}}
-        <form action="/deleteTodoItem/{{i.id}}" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="Delete" 
-        </form>
-    </li>
+<table>
+    <tr>
+        <th>Tareas</th>
+        <th></th>
+    </tr>
+    {% for tareas in tareas %}
+    <tr>
+        <td>{{tareas.titulo}}</td>
+        <td><a href="{% url 'ToDoApp:Detalles' tareas.id %} ">Detalles</a></td>   
+    </tr>
+    {% empty %}
+    <h3>No tienes tareas registradas</h3>
     {% endfor %}
-</ul>
+</table>
 
