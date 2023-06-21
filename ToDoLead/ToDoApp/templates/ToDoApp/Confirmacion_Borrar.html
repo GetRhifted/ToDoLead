@@ -1,0 +1,6 @@
+<a href="{% url 'ToDoApp:tarea' %}">Volver a la Lista de Tareas</a>
+<form method="POST">
+    {% csrf_token %}
+    <p>¿Estás segúro de eliminar la tarea "{{tareas}}"? </p>
+    <input type="submit" value="Borrar" />
+</form>

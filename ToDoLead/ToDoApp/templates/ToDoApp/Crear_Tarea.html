@@ -1,1 +1,8 @@
+<h3>Formulario de Tarea</h3>
+<a href="{% url 'ToDoApp:tarea' %}">Volver a la Lista de Tareas</a>
 
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Crear Tarea">
+</form>

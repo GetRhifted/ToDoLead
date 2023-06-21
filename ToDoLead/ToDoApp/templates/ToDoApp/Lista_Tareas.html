@@ -1,14 +1,27 @@
-<h1>Hello To Do List</h1>
+{% if request.user.is_authenticated %}
+    <p>{{request.user}}</p>
+    <a href="{% url 'ToDoApp:logout' %}">Cerrar Sesion</a>
+{% else %}
+    <a href="{% url 'ToDoApp:login' %}">Iniciar Sesion</a>
+{% endif %}
+
+<hr>
+<h1>To Do Leads</h1>
+<a href="{% url 'ToDoApp:crear_tarea' %}">Agregar Tarea!</a>
 
 <table>
     <tr>
         <th>Tareas</th>
         <th></th>
+        <th></th>
+        <th></th>
     </tr>
     {% for tareas in tareas %}
     <tr>
         <td>{{tareas.titulo}}</td>
-        <td><a href="{% url 'ToDoApp:Detalles' tareas.id %} ">Detalles</a></td>   
+        <td><a href="{% url 'ToDoApp:Detalles' tareas.id %} ">Detalles</a></td> 
+        <td><a href="{% url 'ToDoApp:actualizar_tarea' tareas.id %}">Actualizar</a></td>
+        <td><a href="{% url 'ToDoApp:borrar_tarea' tareas.id %}">Borrar</a></td>  
     </tr>
     {% empty %}
     <h3>No tienes tareas registradas</h3>
