@@ -1,0 +1,10 @@
+<h1>Registro de Usuario</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Registrarse" >
+</form>
+
+
+<p>¿Ya tienes una cuenta? <a href="{% url 'ToDoApp:login' %}"> Inicia Sesion!</a></p>

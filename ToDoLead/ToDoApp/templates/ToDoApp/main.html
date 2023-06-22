@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}ToDoLeads{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            {% block header %}
+                ToDoLeads
+            {% endblock %}
+        </header>
+        <main>
+            {% block content %}
+                <!-- Aquí se insertará el contenido específico de cada plantilla -->
+            {% endblock %}
+        </main>
+        <footer>
+            {% block footer %}
+                <!-- Aquí puedes incluir tu pie de página común -->
+            {% endblock %}
+        </footer>
+    </div>
+</body>
+</html>

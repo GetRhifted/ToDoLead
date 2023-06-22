@@ -8,6 +8,8 @@ app_name = 'ToDoApp'
 urlpatterns = [
     path('login/', views.IniciodeSesion.as_view(), name='login'),
     path('logout/', LogoutView.as_view(next_page='ToDoApp:login'), name='logout'),
+    path('registro_usuario/', views.RegistrodeUsuario.as_view(), name='registro_usuario'),
+
     path('', views.ListadeTareas.as_view(), name='tarea'),
     path('tarea/<int:pk>/', views.DetalledeTarea.as_view(), name='Detalles'),
     path('crear_tarea/', views.CrearTarea.as_view(), name='crear_tarea'),
