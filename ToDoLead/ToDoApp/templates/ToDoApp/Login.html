@@ -1,10 +1,17 @@
-<h1>Iniciar Sesion</h1>
+{% extends 'ToDoApp/main.html' %}
+{% block content %}
 
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Iniciar Sesion" >
-</form>
+<div class="header-bar">
+    <h1>Iniciar Sesion</h1>
+</div>
 
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Iniciar Sesion" >
+    </form>
+    <p>¿No tienes una cuenta? <a href="{% url 'ToDoApp:registro_usuario' %}"> Crea Una!</a></p>
+</div>
 
-<p>¿No tienes una cuenta? <a href="{% url 'ToDoApp:registro_usuario' %}"> Crea Una!</a></p>
+{% endblock content %}

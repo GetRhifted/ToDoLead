@@ -1,8 +1,16 @@
-<h3>Formulario de Tarea</h3>
-<a href="{% url 'ToDoApp:tarea' %}">Volver a la Lista de Tareas</a>
+{% extends 'ToDoApp/main.html' %}
+{% block content %}
 
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Crear Tarea">
-</form>
+<div class="header-bar">
+    <a href="{% url 'ToDoApp:tarea' %}">&#8592; Volver a la Lista de Tareas</a>
+</div>
+
+<div class="card-body">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Crear Tarea">
+    </form>
+</div>
+
+{% endblock content %}

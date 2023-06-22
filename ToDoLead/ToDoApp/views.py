@@ -35,7 +35,8 @@ class RegistrodeUsuario(FormView):
     
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect(RegistrodeUsuario, self).get(*args, **kwargs)
+            return redirect('ToDoApp:tarea')
+        return super(RegistrodeUsuario, self).get(*args, **kwargs)
    
 class ListadeTareas(LoginRequiredMixin, ListView):
     model = Tarea
